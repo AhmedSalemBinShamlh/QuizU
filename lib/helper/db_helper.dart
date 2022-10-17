@@ -23,7 +23,7 @@ class DBHelper {
 
   static Future<List<Map<String, dynamic>>> getData() async {
     final db = await DBHelper.database();
-    return db.query("score", orderBy: "date", distinct: true);
+    return db.rawQuery("select * from score orderBy 'date' desc");
   }
 
   static Future<int> delete() async {
